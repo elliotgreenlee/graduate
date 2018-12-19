@@ -1,0 +1,28 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+
+  <h1>Search Results</h1>
+</div><!-- /.jumbotron -->
+
+<div class="body-content">
+  <div class="row">
+    <div class="col-lg-12">
+      {% if results %}
+          {% for value in results %}
+            <p>Word: {{ value["word"] }}</p>
+            <p>Document Name: {{ value["doc_name"] }}</p>
+            <p>Line Number: {{ value["line_number"] }}</p>
+            <p>Word Position on Line: {{ value["word_number"] }}</p>
+            <hr>
+          {% endfor %}
+      {% else %}
+        <h3>No Results!</h3>
+      {% endif %}
+    </div>
+  </div><!-- /.row -->
+</div>
+{% endblock %}
+
